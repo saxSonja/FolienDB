@@ -1,0 +1,62 @@
+Änderungen, die bei Bosch eingespielt werden müssen
+
+Stand 14.11.16
+
+1. Deutsch\bs.htm und Deutsch\fs.htm umbenennen in Deutsch\sax_bs.htm und Deutsch\sax_fs.htm
+2. App.Search.min.js (auch mit sax_Präfix)
+
+
+
+Stand 29.11.16
+--------------
+Neuer Aufruf für Folienbibliothek mit Weiterleitung auch für inländischen Server.
+
+In c:\Daten\Eforms\ werden entweder die Dateien
+	FB.htm und Bosch_DS_Folienbibliothek_Start_A_breit.png 
+oder
+	FBmitBild.htm (mit Hintergrundbild als Base64)
+zur Verfügung gestellt.
+
+ACHTUNG: URLs müssen encoded sein, d.h. für Leerzeichen %20 einfügen (Umlaute bitte auch encoden)
+
+Ziel: Weltweit auf jeder Eforms-Installation die gleiche Startseite. Je nach Flagge wird dann auf den entsprechenden Server weitergeleitet.
+Somit muss die Startseite nicht mehr von dem deutschen Server geladen werden.
+
+Problem: Bisher hatten wir relative URLs zumindest für Inland/ Europa. Bei relativen URLs können Cookies vor dem Aufruf geschrieben 
+werden und bleiben erhalten. Absolute URLs bedeuten einen Domainwechsel und Cookies sind pro Domain gültig.
+D.h. bei einer absoluten URL müssen die Parameter für die Favoriten angehängt werden. Der Webclient schneidet jedoch alle Parameter wieder ab.
+
+Lösung: Favoriten sind ohne Korrektur des Webclient ab sofort nicht mehr möglich.
+
+Sobald der Webclient korrigiert wurde, läuft das folgendermaßen ab:
+
+Webclient ruft c:\Daten\Eforms\FBmitBild.htm auf.
+Alle absoluten URLs (href) in FBmitBild.htm werden automatisch um die vom Webclient uebergebenen Parameter erweitert.
+Diese URLs verweisen immer auf start_deutsch.htm oder start_english.htm.
+Diese wiederum nehmen die Parameter entgegen und schreiben sie in Cookies.
+Auf Basis dieser Cookies funktionieren die Favoriten. In den Cookies werden auch alle Änderungen gespeichert.
+Gleichzeitig wird auch noch ein Download für den Webclient ausgelöst. Dieser dient als "Favoriten-Server" und speichert die Daten
+im Benutzerverzeichnis.
+
+Stand 29.11.16
+--------------
+
+1. FBmitBildmitFavRelativeAbsoluteURLs.htm
+Folienbibliothek mit Bild und Favoriten (nur für relative URLS) - Aktuell Absturz bei absoluten URLs wenn
+Parameter uebergeben wurden. Wenn der Webclient repariert ist, dann sollte diese Startseite alles können!
+
+2. FBmitBildmitFavAbsoluteURLs.htm 
+Folienbibliothek mit Bild und Favoriten (nur für absolute URLS) - Aktuell Absturz bei absoluten URLs wenn
+Parameter uebergeben wurden. Wenn der Webclient repariert ist, dann sollte diese Startseite ausreichen, 
+wenn nur absolute URLs verwendet werden!
+
+3. FBmitBildohneFav.htm
+Bei Verwendung mit absoluten URLs und defekter Webclient
+
+
+
+
+
+		  	
+
+

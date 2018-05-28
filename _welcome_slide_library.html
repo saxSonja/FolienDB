@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=10">
+<script type="text/javascript">
+
+function portalSetCookie(_key, _value)
+{
+	/// <summary>
+	/// Setzt ein Cookie.
+	/// </summary>
+	/// <param name="_key" type="String">
+	/// Gibt den Schlüssel für den Cookie an.
+	/// </param>
+	/// <param name="_value" type="String">
+	/// Gibt den Wert an, der abgelegt werden soll.
+	/// </param>
+	var value = _key + '=' + escape(_value);
+	document.cookie = value;
+		
+	return true;
+}
+</script>
+
+<style>
+.fb-flagge {
+	z-index:100;
+	width:62px;
+	height: 43px;
+	position:absolute;
+	padding: 0px;
+	border: 0px;
+}
+.fb-flagge:hover {
+	cursor: pointer;
+	z-index:100;
+	padding: 2px;
+	border: 2px;
+	border-style: solid;
+	border-color: #FDFEFE;
+}
+</style>
+</head>
+<body>
+
+<div style="z-index:10;
+			position:absolute;
+			top:0px;
+			left:0px;
+			width:100%;
+			height: 100%;
+			border-style:none;
+			background-color:#fff;
+			background: url(img/Bosch_DS_Folienbibliothek_Start_A_breit.png) no-repeat;			
+			">
+			&nbsp;
+</div> 
+
+<div	class="fb-flagge"
+		style="	position:absolute;
+				top:420px;
+				left:261px;"
+		id="id_eu"
+		onclick="window.location.href ='Deutsch/MenuOF.htm'"
+		target="_self"
+	>
+</div> 
+
+<div	class="fb-flagge"
+		style="	position:absolute;
+				top:420px;
+				left:401px;"
+		onclick="window.location.href ='Deutsch/Start.htm'"
+		id="id_france"
+		target="_self"
+		>
+</div> 
+
+
+<div	class="fb-flagge"
+		style="	position:absolute;
+				top:420px;
+				left:541px;"
+		id="id_brazil"
+		target="_self"
+	>
+</div> 
+<div	class="fb-flagge"
+		style="	position:absolute;
+				top:420px;
+				left:681px;"
+		id="id_china"
+		target="_self"
+	>
+</div> 
+<div	class="fb-flagge"
+		style="	position:absolute;
+				top:521px;
+				left:261px;"
+		id="id_usa"
+		target="_self"
+	>
+</div> 
+<div	class="fb-flagge"
+		style="	position:absolute;
+				top:521px;
+				left:401px;"
+		id="id_japan"
+		target="_self"
+	>
+</div> 
+<div	class="fb-flagge"
+		style="	position:absolute;
+				top:521px;
+				left:541px;"
+		id="id_korea"
+		target="_self"
+	>
+</div> 
+<div	class="fb-flagge"
+		style="	position:absolute;
+				top:521px;
+				left:681px;"
+		onclick="window.location.href ='file://///pc-armin/ab/JOBS/1338/Stand_160920/bildersuche/start_deutsch.htm'"
+		id="id_india"
+		target="_self"
+	>
+</div> 
+
+
+
+<script type="text/javascript">
+
+// Daten zum Speichern wurden an den Webclient uebertragen
+// z.B. 
+// key = cp0
+// value = favorit1,slides=-912942277|-912942277
+//
+// Aufruf:
+//  
+//  "portal.htm?fb_"+key0+"="+value0+"&fb_"+key1+"="+value1+"&fb_"+key2+"="+value2+"&fb_"+key3+"="+value3
+//
+//if (false)
+{
+if (window.location.search !== "")
+{
+	// Parameter wurden uebergeben
+	// Jetzt werden alle absoluten Verweise (file:///server/usw) mit den Parametern ausgestattet
+	// d.h. der relative Verweis id="id_eu" erhält z.B. keine Parameter und es werden hier bereits die Cookies angelegt!
+	// Ein relativer Verweis funktioniert nicht mit Parametern. 
+	// Die Cookies gelten pro Domain und ein absoluter Verweis erzeugt eine neue Domain, d.h.
+	// in den alternativen Servern (auslaendische) muss es eigene start*.htm Dateien geben, die dann auch
+	// die Cookies anlegen.
+	
+	// für Test: file:///C:/ab/JOBS/1338/Stand_160920/bildersuche/portal.htm
+	var portal_elemente = document.getElementsByClassName("fb-flagge");
+
+	for (var i = 0; i < portal_elemente.length; i++)
+	{
+		// if (portal_elemente[i].getAttribute("id") !== "id_eu")
+		var sTest = portal_elemente[i].getAttribute("onclick");
+		
+		if (sTest)
+		{
+			var iPos  = sTest.indexOf("file:");
+
+
+			if (iPos>-1)	// iPos==-1: "file:" wurde nicht gefunden, d.h. es handelt sich um einen relativen Link und die Cookies bleiben erhalten!
+			{
+				var portal_attr = sTest;
+				
+				if (portal_attr)
+				{
+					// alert("portal_attr: "+portal_attr);
+					alert("160920window.location.search: "+window.location.search);
+					
+					if (portal_attr.length > 0)
+					{
+						portal_attr = portal_attr.substring(0,portal_attr.length-1); // letztes Hochkomma entfernen
+						
+						// Den uebergebenen Parameterstring encoden
+						// Zuerst alle Parameter vereinzeln (Trenner "&" darf nicht encoded werden)
+						var sPara = window.location.search;
+						if (sPara.substr(0,1)=="?") sPara = sPara.substr(1);
+						
+						// rechts koennen seltsame Zeichen uebertragen werden - wahrscheinlich ein Fehler des Webclients
+						while (sPara && (sPara.substr(sPara.length-1) < '0' || sPara.substr(sPara.length-1) > '9')) {
+							sPara = sPara.substr(0,sPara.length-1);
+						} 
+						alert(sPara);
+						
+						var aPara = sPara.split("&");
+						
+						for (var j = 0; j < aPara.length; j++)
+						{
+							// z.B. aPara[j] = fb_cp0=favorit1,slides=-912942277|-912942277
+							// jetzt noch key von value trennen und encoden
+							iPos = aPara[j].indexOf("=");	// 1. "=" suchen
+							if (iPos > -1)
+							{
+								var sKey = aPara[j].substr(0,iPos);
+								var sValue = aPara[j].substr(iPos+1);
+								//alert("sKey: "+ sKey);
+								//alert("sValue: "+ sValue);
+								sValue = encodeURIComponent(sValue);
+								aPara[j] = sKey + "=" + sValue;
+								//alert("aPara[j]: "+aPara[j] );
+								// aPara[j] = encodeURIComponent(aPara[j]);
+							}
+						}
+						
+						// Parameterstring jetzt wieder zusammensetzen
+						sPara = "";
+						for (var j = 0; j < aPara.length; j++)
+						{
+							if (j>0) sPara += "&"; 
+							sPara += aPara[j];
+						}
+						alert ("sPara: "+sPara);
+						
+						if (sPara.length > 0)
+						{
+							portal_attr += "?";
+							portal_attr += sPara;
+							portal_attr += "'";
+							portal_elemente[i].setAttribute("onclick",portal_attr);
+							alert("onclick: "+portal_elemente[i].getAttribute("onclick") );
+							alert("id: "+portal_elemente[i].getAttribute("id") );
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+	// Aus diesen Parametern werden die Cookies restauriert 
+	var _sparam = window.location.search;
+	    
+	// Cookiedaten werden vom Webclient uebergeben
+	// z.B. "portal.htm?fb_"+key0+"="+value0+"&fb_"+key1+"="+value1+"&fb_"+key2+"="+value2+"&fb_"+key3+"="+value3
+	// Beispiel fuer URL, so kann sie zum Test direkt in einem Browser eingegeben werden:
+	// file:///C:/ab/JOBS/H1551/Stand_150805/bildersuche/portal.htm?fb_cp0=favorit1,slides=-912942277%7C-912942277&fb_cp1=favorit2,slides=-912942277%7C-912942277&fb_cp1=favorit3,slides=-912942277%7C-912942277
+	// file:///C:/ab/JOBS/1338/Stand_151221_Weihnachtsgeschenk/bildersuche/portal.htm?fb_cp0=favorit1,slides=-912942277%7C-912942277&fb_cp1=favorit2,slides=-912942277%7C-912942277&fb_cp1=favorit3,slides=-912942277%7C-912942277
+	// file:///C:/ab/JOBS/1338/Stand_160920/bildersuche/portal.htm?fb_cp0=favorit1,slides=-912942277%7C-912942277&fb_cp1=favorit2,slides=-912942277%7C-912942277&fb_cp1=favorit3,slides=-912942277%7C-912942277
+	// file:///C:/ab/JOBS/1338/Stand_160920/bildersuche/portal.htm?fb_cp0=favorit1,slides=-912942277|-912942277&fb_cp1=favorit2,slides=-912942277|-912942277&fb_cp2=favorit3,slides=-912942277|-912942277
+	// alert(window.location.search);
+
+	portalSetCookie("useWebClient", "true");
+	
+	var sparam = window.location.search;
+	sparam = sparam.substr(1);				// erstes "?" entfernen
+	var aparam = sparam.split("&");
+	for (var i=0; i < aparam.length; ++i) 
+	{
+		var npos = aparam[i].indexOf("=");
+		if (npos > 3)
+		{
+			var skey = aparam[i].substr(3,npos-3);       // fb_cp0=favorit1,slides=-912942277|-912942277 ergibt "cp0"
+			var svalue = aparam[i].substr(npos+1);       // ergibt "favorit1,slides=-912942277|-912942277"          
+			svalue = unescape(svalue);
+			if (svalue == "") svalue = "Neuer Favorit,slides=";
+			
+			// alert(i+" Portal key: "+skey+" value: "+svalue);
+			portalSetCookie(skey, svalue);
+		}
+	}
+//}
+else
+{
+	// wenn vom Webclient keine Parameter uebergeben werden, dann ist es auch nicht moeglich, mit dem WebClient
+	// Favoriten zu speichern
+	portalSetCookie("useWebClient", "false");
+}
+
+
+/*
+// Daten zum Speichern wurden an den Webclient uebertragen
+// z.B. 
+// key = cp0
+// value = favorit1,slides=-912942277|-912942277
+//
+// Aufruf:
+//  "portal.htm?fb_"+key0+"="+value0+"&fb_"+key1+"="+value1+"&fb_"+key2+"="+value2+"&fb_"+key3+"="+value3
+//
+// alert("window.location.search :"+window.location.search);
+if (window.location.search != "")
+{
+
+	var portal_elemente = document.getElementsByClassName("fb-flagge");
+
+	for (var i = 0; i < portal_elemente.length; i++) {
+		var portal_attr = portal_elemente[i].getAttribute("onclick");
+		
+		if (portal_attr) {
+			//alert("portal_attr :"+portal_attr);
+			//alert("window.location.search :"+window.location.search);
+			
+			if (portal_attr.length > 0)
+			{
+				portal_attr = portal_attr.substring(0,portal_attr.length-1); // letztes Hochkomma entfernen
+				portal_attr += window.location.search;
+				portal_attr += "'";
+				// alert("portal_attr2 :"+portal_attr);
+				portal_elemente[i].setAttribute("onclick",portal_attr);
+			}
+		}
+	}
+}
+
+
+
+// Aus diesen Parametern werden die Cookies restauriert 
+//	alert(window.location.search);
+if (window.location.search != "")
+{
+
+	var _sparam = window.location.search;
+	
+	//if (App.useWebClient) {
+		// Cookiedaten werden vom Webclient uebergeben
+		// z.B. "portal.htm?fb_"+key0+"="+value0+"&fb_"+key1+"="+value1+"&fb_"+key2+"="+value2+"&fb_"+key3+"="+value3
+		// file:///C:/test/portal.htm?fb_cp0=favorit1,slides=-912942277|-912942277&fb_cp1=favorit2,slides=-912942277|-912942277&fb_cp1=favorit3,slides=-912942277|-912942277
+		// file:///C:/ab/JOBS/1338/Stand_150609/bildersuche/portal.htm?fb_cp0=favorit1,slides=-912942277%7C-912942277&fb_cp1=favorit2,slides=-912942277%7C-912942277&fb_cp1=favorit3,slides=-912942277%7C-912942277		
+
+		// alert(window.location.search);
+		
+		if (window.location.search != "")
+		{
+			var sparam = window.location.search;
+			sparam = sparam.substr(1);				// erstes "?" entfernen
+			var aparam = sparam.split("&");
+			for (var i=0; i < aparam.length; ++i) 
+			{
+				
+				var npos = aparam[i].indexOf("=");
+				if (npos > 3)
+				{
+					var skey = aparam[i].substr(3,npos-3);       // fb_cp0=favorit1,slides=-912942277|-912942277 ergibt "cp0"
+					var svalue = aparam[i].substr(npos+1);       // ergibt "favorit1,slides=-912942277|-912942277"          
+					svalue = unescape(svalue);
+					//if (svalue == "") 
+					//	{
+					//		svalue = "leerer Favorit";
+					//		//alert("key: "+skey+" value: "+svalue);
+					//	}
+					if (svalue == "") svalue = "Neuer Favorit,slides=";
+					
+					// alert(i+" Portal key: "+skey+" value: "+svalue);
+					portalSetCookie(skey, svalue);
+				}
+			}
+		}
+
+		
+	//}
+
+}
+else
+{
+	// wenn vom Webclient keine Parameter uebergeben werden, dann ist es auch nicht moeglich, mit dem WebClient
+	// Favoriten zu speichern
+	var value = "useWebClient=false";
+	document.cookie = value;
+}
+*/
+</script>
+</body>
+</html>

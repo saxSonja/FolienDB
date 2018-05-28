@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<script type="text/javascript">
+//alert("start_deutsch.htm");
+function portalSetCookie(_key, _value)
+{
+	/// <summary>
+	/// Setzt ein Cookie.
+	/// </summary>
+	/// <param name="_key" type="String">
+	/// Gibt den Schlüssel für den Cookie an.
+	/// </param>
+	/// <param name="_value" type="String">
+	/// Gibt den Wert an, der abgelegt werden soll.
+	/// </param>
+	
+	// Erst mal Cookie entfernen:
+	document.cookie = _key + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT';
+	
+	// Jetzt Cookie schreiben
+	var value = _key + '=' + escape(_value);
+	document.cookie = value;
+		
+	return true;
+}
+
+var sparam = "";
+if (window.location.search !== "")
+{
+	portalSetCookie("useWebClient", "true");
+	
+	sparam = window.location.search;
+	sparam = sparam.substr(1);				// erstes "?" entfernen
+	var aparam = sparam.split("&");
+	for (var i=0; i < aparam.length; ++i) 
+	{
+		var npos = aparam[i].indexOf("=");
+		if (npos > 3)
+		{
+			var skey = aparam[i].substr(3,npos-3);       // fb_cp0=favorit1,slides=-912942277|-912942277 ergibt "cp0"
+			var svalue = aparam[i].substr(npos+1);       // ergibt "favorit1,slides=-912942277|-912942277"          
+			svalue = unescape(svalue);
+
+			// Hier kann sprachabhaengig der Text "Neuer Favorit" angepasst werden
+			if (svalue == "") svalue = "Neuer Favorit,slides=";
+		
+			// alert(i+" Portal key: "+skey+" value: "+svalue);
+			portalSetCookie(skey, svalue);
+		}
+	}
+}
+else
+{
+	// wenn vom Webclient keine Parameter uebergeben werden, dann ist es auch nicht moeglich, mit dem WebClient
+	// Favoriten zu speichern
+	portalSetCookie("useWebClient", "false");
+}
+
+var ziel   = "Deutsch/MenuOF.htm"+window.location.search;
+//alert("ziel");
+window.location.href = ziel;
+
+</script>
+</head>
+</html>
