@@ -62,7 +62,7 @@ function portalSetCookie(_key, _value)
 				top:420px;
 				left:261px;"
 		id="id_eu"
-		onclick="window.location.href = 'file://///FILESHARE/Public/Data/Daten/Projekte/Bosch/_JOB/1440_Erweiterung%20Bildersuche%20Intranet/QA/Stand_161129/start_deutsch.htm'"
+		onclick="document.location.href = 'file://///FILESHARE/Public/Data/Daten/Projekte/Bosch/_JOB/1440_Erweiterung%20Bildersuche%20Intranet/QA/Stand_161129/start_deutsch.htm'"
 		target="_self"
 	>
 </div> 
@@ -72,7 +72,7 @@ function portalSetCookie(_key, _value)
 				top:420px;
 				left:401px;"
 		id="id_france"
-		onclick="window.location.href = 'file://///FILESHARE/Public/Data/Daten/Projekte/Bosch/_JOB/1440_Erweiterung%20Bildersuche%20Intranet/QA/Stand_161129/start_english.htm'"
+		onclick="document.location.href = 'file://///FILESHARE/Public/Data/Daten/Projekte/Bosch/_JOB/1440_Erweiterung%20Bildersuche%20Intranet/QA/Stand_161129/start_english.htm'"
 		target="_self"
 		>
 </div> 
@@ -82,7 +82,7 @@ function portalSetCookie(_key, _value)
 				top:420px;
 				left:541px;"
 		id="id_brazil"
-		onclick="window.location.href ='file://///ct02fs03.br.bosch.com/SlideLibrary-DS-LA/content/start_english.htm'"
+		onclick="document.location.href ='file://///ct02fs03.br.bosch.com/SlideLibrary-DS-LA/content/start_english.htm'"
 		target="_self"
 	>
 </div> 
@@ -91,7 +91,7 @@ function portalSetCookie(_key, _value)
 				top:420px;
 				left:681px;"
 		id="id_china"
-		onclick="window.location.href ='file://///bosch.com/dfsrb/DfsKR/LOC/Yo/Share/02_Group/DSKR/DSKR_Academy/SlideLibrary/content/start_english.htm'"
+		onclick="document.location.href ='file://///bosch.com/dfsrb/DfsKR/LOC/Yo/Share/02_Group/DSKR/DSKR_Academy/SlideLibrary/content/start_english.htm'"
 		target="_self"
 	>
 </div> 
@@ -100,7 +100,7 @@ function portalSetCookie(_key, _value)
 				top:521px;
 				left:261px;"
 		id="id_usa"
-		onclick="window.location.href ='file://///bosch.com/dfsrb/DfsUS/loc/Ply/ILM/Dept/DS_SLIDE_LIB_NA/content/start_english.htm'"
+		onclick="document.location.href ='file://///bosch.com/dfsrb/DfsUS/loc/Ply/ILM/Dept/DS_SLIDE_LIB_NA/content/start_english.htm'"
 		target="_self"
 	>
 </div> 
@@ -109,7 +109,7 @@ function portalSetCookie(_key, _value)
 				top:521px;
 				left:401px;"
 		id="id_japan"					       
-		onclick="window.location.href ='file://///BOSCH.COM/DfsRB/DfsJP/DIV/DS/SlideLibrary/content/start_english.htm'"
+		onclick="document.location.href ='file://///BOSCH.COM/DfsRB/DfsJP/DIV/DS/SlideLibrary/content/start_english.htm'"
 		target="_self"
 	>
 </div> 
@@ -118,7 +118,7 @@ function portalSetCookie(_key, _value)
 				top:521px;
 				left:541px;"
 		id="id_korea"
-		onclick="window.location.href ='file://///bosch.com/dfsrb/DfsKR/LOC/Yo/Share/02_Group/DSKR/DSKR_Academy/SlideLibrary/content/start_english.htm'"
+		onclick="document.location.href ='file://///bosch.com/dfsrb/DfsKR/LOC/Yo/Share/02_Group/DSKR/DSKR_Academy/SlideLibrary/content/start_english.htm'"
 		target="_self"
 	>
 </div> 
@@ -127,7 +127,7 @@ function portalSetCookie(_key, _value)
 				top:521px;
 				left:681px;"
 		id="id_india"
-		onclick="window.location.href ='file://///BOSCH.COM/DfsRB/DfsIN/DIV/DS/SA-IN/SALES/PJ_MBL_IN/SlideLibrary/content/start_english.htm'"
+		onclick="document.location.href ='file://///BOSCH.COM/DfsRB/DfsIN/DIV/DS/SA-IN/SALES/PJ_MBL_IN/SlideLibrary/content/start_english.htm'"
 		target="_self"
 	>
 </div> 
@@ -146,7 +146,7 @@ function portalSetCookie(_key, _value)
 //
 //if (false)
 //{
-if (window.location.search !== "")
+if (document.location.search !== "")
 {
 	// Parameter wurden uebergeben
 	// Jetzt werden alle absoluten Verweise (file:///server/usw) mit den Parametern ausgestattet
@@ -182,7 +182,7 @@ if (window.location.search !== "")
 						
 						// Den uebergebenen Parameterstring encoden
 						// Zuerst alle Parameter vereinzeln (Trenner "&" darf nicht encoded werden)
-						var sPara = window.location.search;
+						var sPara = document.location.search;
 						if (sPara.substr(0,1)=="?") sPara = sPara.substr(1);
 						
 						// rechts koennen seltsame Zeichen uebertragen werden - wahrscheinlich ein Fehler des Webclients
@@ -237,7 +237,7 @@ if (window.location.search !== "")
 // Cookies 
 // Aus diesen Parametern werden die Cookies restauriert 
 // Nur fuer relative URLs moeglich
-var _sparam = window.location.search;
+var _sparam = document.location.search;
 	
 // Cookiedaten werden vom Webclient uebergeben
 // z.B. "portal.htm?fb_"+key0+"="+value0+"&fb_"+key1+"="+value1+"&fb_"+key2+"="+value2+"&fb_"+key3+"="+value3
@@ -246,11 +246,11 @@ var _sparam = window.location.search;
 // file:///C:/ab/JOBS/1338/Stand_151221_Weihnachtsgeschenk/bildersuche/portal.htm?fb_cp0=favorit1,slides=-912942277%7C-912942277&fb_cp1=favorit2,slides=-912942277%7C-912942277&fb_cp1=favorit3,slides=-912942277%7C-912942277
 // file:///C:/ab/JOBS/1338/Stand_160920/bildersuche/portal.htm?fb_cp0=favorit1,slides=-912942277%7C-912942277&fb_cp1=favorit2,slides=-912942277%7C-912942277&fb_cp1=favorit3,slides=-912942277%7C-912942277
 // file:///C:/ab/JOBS/1338/Stand_160920/bildersuche/portal.htm?fb_cp0=favorit1,slides=-912942277|-912942277&fb_cp1=favorit2,slides=-912942277|-912942277&fb_cp2=favorit3,slides=-912942277|-912942277
-// alert(window.location.search);
+// alert(document.location.search);
 
 portalSetCookie("useWebClient", "true");
 
-var sparam = window.location.search;
+var sparam = document.location.search;
 sparam = sparam.substr(1);				// erstes "?" entfernen
 var aparam = sparam.split("&");
 for (var i=0; i < aparam.length; ++i) 

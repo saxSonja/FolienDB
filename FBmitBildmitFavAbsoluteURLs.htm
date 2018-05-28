@@ -42,7 +42,7 @@
 				top:420px;
 				left:261px;"
 		id="id_eu"
-		onclick="window.location.href = 'file://///FILESHARE/Public/Data/Daten/Projekte/Bosch/_JOB/1440_Erweiterung%20Bildersuche%20Intranet/QA/Stand_161129/start_deutsch.htm'"
+		onclick="document.location.href = 'file://///FILESHARE/Public/Data/Daten/Projekte/Bosch/_JOB/1440_Erweiterung%20Bildersuche%20Intranet/QA/Stand_161129/start_deutsch.htm'"
 		target="_self"
 	>
 </div> 
@@ -52,7 +52,7 @@
 				top:420px;
 				left:401px;"
 		id="id_france"
-		onclick="window.location.href = 'file://///FILESHARE/Public/Data/Daten/Projekte/Bosch/_JOB/1440_Erweiterung%20Bildersuche%20Intranet/QA/Stand_161129/start_english.htm'"
+		onclick="document.location.href = 'file://///FILESHARE/Public/Data/Daten/Projekte/Bosch/_JOB/1440_Erweiterung%20Bildersuche%20Intranet/QA/Stand_161129/start_english.htm'"
 		target="_self"
 		>
 </div> 
@@ -62,7 +62,7 @@
 				top:420px;
 				left:541px;"
 		id="id_brazil"
-		onclick="window.location.href ='file://///ct02fs03.br.bosch.com/SlideLibrary-DS-LA/content/start_english.htm'"
+		onclick="document.location.href ='file://///ct02fs03.br.bosch.com/SlideLibrary-DS-LA/content/start_english.htm'"
 		target="_self"
 	>
 </div> 
@@ -71,7 +71,7 @@
 				top:420px;
 				left:681px;"
 		id="id_china"
-		onclick="window.location.href ='file://///bosch.com/dfsrb/DfsKR/LOC/Yo/Share/02_Group/DSKR/DSKR_Academy/SlideLibrary/content/start_english.htm'"
+		onclick="document.location.href ='file://///bosch.com/dfsrb/DfsKR/LOC/Yo/Share/02_Group/DSKR/DSKR_Academy/SlideLibrary/content/start_english.htm'"
 		target="_self"
 	>
 </div> 
@@ -80,7 +80,7 @@
 				top:521px;
 				left:261px;"
 		id="id_usa"
-		onclick="window.location.href ='file://///bosch.com/dfsrb/DfsUS/loc/Ply/ILM/Dept/DS_SLIDE_LIB_NA/content/start_english.htm'"
+		onclick="document.location.href ='file://///bosch.com/dfsrb/DfsUS/loc/Ply/ILM/Dept/DS_SLIDE_LIB_NA/content/start_english.htm'"
 		target="_self"
 	>
 </div> 
@@ -89,7 +89,7 @@
 				top:521px;
 				left:401px;"
 		id="id_japan"					       
-		onclick="window.location.href ='file://///BOSCH.COM/DfsRB/DfsJP/DIV/DS/SlideLibrary/content/start_english.htm'"
+		onclick="document.location.href ='file://///BOSCH.COM/DfsRB/DfsJP/DIV/DS/SlideLibrary/content/start_english.htm'"
 		target="_self"
 	>
 </div> 
@@ -98,7 +98,7 @@
 				top:521px;
 				left:541px;"
 		id="id_korea"
-		onclick="window.location.href ='file://///bosch.com/dfsrb/DfsKR/LOC/Yo/Share/02_Group/DSKR/DSKR_Academy/SlideLibrary/content/start_english.htm'"
+		onclick="document.location.href ='file://///bosch.com/dfsrb/DfsKR/LOC/Yo/Share/02_Group/DSKR/DSKR_Academy/SlideLibrary/content/start_english.htm'"
 		target="_self"
 	>
 </div> 
@@ -107,7 +107,7 @@
 				top:521px;
 				left:681px;"
 		id="id_india"
-		onclick="window.location.href ='file://///BOSCH.COM/DfsRB/DfsIN/DIV/DS/SA-IN/SALES/PJ_MBL_IN/SlideLibrary/content/start_english.htm'"
+		onclick="document.location.href ='file://///BOSCH.COM/DfsRB/DfsIN/DIV/DS/SA-IN/SALES/PJ_MBL_IN/SlideLibrary/content/start_english.htm'"
 		target="_self"
 	>
 </div> 
@@ -126,7 +126,7 @@
 //
 //if (false)
 //{
-if (window.location.search !== "")
+if (document.location.search !== "")
 {
 	// Parameter wurden uebergeben
 	// Jetzt werden alle absoluten Verweise (file:///server/usw) mit den Parametern ausgestattet
@@ -156,7 +156,7 @@ if (window.location.search !== "")
 				if (portal_attr)
 				{
 					// alert("portal_attr: "+portal_attr);
-					// alert("160920window.location.search: "+window.location.search);
+					// alert("160920document.location.search: "+document.location.search);
 					
 					if (portal_attr.length > 0)
 					{
@@ -164,7 +164,7 @@ if (window.location.search !== "")
 						
 						// Den uebergebenen Parameterstring encoden
 						// Zuerst alle Parameter vereinzeln (Trenner "&" darf nicht encoded werden)
-						var sPara = window.location.search;
+						var sPara = document.location.search;
 						if (sPara.substr(0,1)=="?") sPara = sPara.substr(1);
 						
 						// rechts koennen seltsame Zeichen uebertragen werden - wahrscheinlich ein Fehler des Webclients

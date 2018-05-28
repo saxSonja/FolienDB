@@ -27,11 +27,11 @@ function portalSetCookie(_key, _value)
 }
 
 var sparam = "";
-if (window.location.search !== "")
+if (document.location.search !== "")
 {
 	portalSetCookie("useWebClient", "true");
 	
-	sparam = window.location.search;
+	sparam = document.location.search;
 	sparam = sparam.substr(1);				// erstes "?" entfernen
 	var aparam = sparam.split("&");
 	for (var i=0; i < aparam.length; ++i) 
@@ -58,9 +58,9 @@ else
 	portalSetCookie("useWebClient", "false");
 }
 
-var ziel   = "Deutsch/MenuOF.htm"+window.location.search;
+var ziel   = "Deutsch/MenuOF.htm"+document.location.search;
 //alert("ziel");
-window.location.href = ziel;
+document.location.href = ziel;
 
 </script>
 </head>
